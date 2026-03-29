@@ -1,0 +1,13 @@
+# Environment variables
+.env
+.env.*
+
+# Volumes and databases
+db_data/
+*.sqlite3
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
