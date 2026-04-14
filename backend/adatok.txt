@@ -1,0 +1,68 @@
+{
+  "users": [
+    {"User_ID": 1, "Role": "admin", "Email": "admin@example.com", "UserName": "AdminUser", "Created_at": "2023-10-25 10:00:00"},
+    {"User_ID": 2, "Role": "host", "Email": "host@example.com", "UserName": "HostUser", "Created_at": "2023-10-25 10:05:00"},
+    {"User_ID": 3, "Role": "player", "Email": "player1@example.com", "UserName": "PlayerOne", "Created_at": "2023-10-25 10:10:00"},
+    {"User_ID": 4, "Role": "player", "Email": "player2@example.com", "UserName": "PlayerTwo", "Created_at": "2023-10-25 10:15:00"},
+    {"User_ID": 5, "Role": "player", "Email": "player3@example.com", "UserName": "PlayerThree", "Created_at": "2023-10-25 10:20:00"},
+    {"User_ID": 6, "Role": "admin", "Email": "admin_b@example.com", "UserName": "AdminUserB", "Created_at": "2023-10-25 11:00:00"},
+    {"User_ID": 7, "Role": "host", "Email": "host_b@example.com", "UserName": "HostUserB", "Created_at": "2023-10-25 11:05:00"},
+    {"User_ID": 8, "Role": "player", "Email": "player1_b@example.com", "UserName": "PlayerOneB", "Created_at": "2023-10-25 11:10:00"}
+  ],
+  "quizzes": [
+    {"Quiz_ID": 1, "Creator_ID": 2, "Title": "General Knowledge Quiz", "Description": "A fun quiz to test your general knowledge."},
+    {"Quiz_ID": 2, "Creator_ID": 2, "Title": "Tech Trivia", "Description": "Questions about programming and technology."},
+    {"Quiz_ID": 3, "Creator_ID": 7, "Title": "Science Quiz", "Description": "Test your science knowledge."}
+  ],
+  "questions": [
+    {"Question_ID": 1, "Quiz_ID": 1, "Question_type": "SINGLE_CHOICE", "Question_text": "What is the capital of France?", "Points": 100},
+    {"Question_ID": 2, "Quiz_ID": 1, "Question_type": "TRUE_FALSE", "Question_text": "The Earth is flat.", "Points": 100},
+    {"Question_ID": 3, "Quiz_ID": 1, "Question_type": "OPEN_TEXT", "Question_text": "Which planet is known as the Red Planet?", "Points": 200},
+    {"Question_ID": 4, "Quiz_ID": 2, "Question_type": "MULTIPLE_CHOICE", "Question_text": "Which of these are programming languages?", "Points": 150},
+    {"Question_ID": 5, "Quiz_ID": 2, "Question_type": "SINGLE_CHOICE", "Question_text": "What does HTML stand for?", "Points": 100},
+    {"Question_ID": 6, "Quiz_ID": 3, "Question_type": "SINGLE_CHOICE", "Question_text": "What is the chemical symbol for water?", "Points": 100}
+  ],
+  "options": [
+    {"Option_ID": 1, "Question_ID": 1, "Option_text": "London", "Is_correct": false},
+    {"Option_ID": 2, "Question_ID": 1, "Option_text": "Berlin", "Is_correct": false},
+    {"Option_ID": 3, "Question_ID": 1, "Option_text": "Paris", "Is_correct": true},
+    {"Option_ID": 4, "Question_ID": 1, "Option_text": "Madrid", "Is_correct": false},
+
+    {"Option_ID": 5, "Question_ID": 2, "Option_text": "True", "Is_correct": false},
+    {"Option_ID": 6, "Question_ID": 2, "Option_text": "False", "Is_correct": true},
+
+    {"Option_ID": 7, "Question_ID": 3, "Option_text": "Mars", "Is_correct": true},
+
+    {"Option_ID": 8, "Question_ID": 4, "Option_text": "Python", "Is_correct": true},
+    {"Option_ID": 9, "Question_ID": 4, "Option_text": "Banana", "Is_correct": false},
+    {"Option_ID": 10, "Question_ID": 4, "Option_text": "Java", "Is_correct": true},
+    {"Option_ID": 11, "Question_ID": 4, "Option_text": "C++", "Is_correct": true},
+
+    {"Option_ID": 12, "Question_ID": 5, "Option_text": "Hyper Text Markup Language", "Is_correct": true},
+    {"Option_ID": 13, "Question_ID": 5, "Option_text": "High Tech Machine Learning", "Is_correct": false},
+    {"Option_ID": 14, "Question_ID": 5, "Option_text": "Hyperlinks and Text Markup Language", "Is_correct": false},
+    {"Option_ID": 15, "Question_ID": 5, "Option_text": "Home Tool Markup Language", "Is_correct": false},
+
+    {"Option_ID": 16, "Question_ID": 6, "Option_text": "H2O", "Is_correct": true},
+    {"Option_ID": 17, "Question_ID": 6, "Option_text": "CO2", "Is_correct": false},
+    {"Option_ID": 18, "Question_ID": 6, "Option_text": "O2", "Is_correct": false},
+    {"Option_ID": 19, "Question_ID": 6, "Option_text": "NaCl", "Is_correct": false}
+  ],
+  "sessions": [
+    {"Session_ID": 1, "Quiz_ID": 1, "Host_ID": 2, "Game_PIN": "123456", "Session_name": "Friday Night Trivia", "Start_time": "2023-10-27 18:00:00", "Is_active": true},
+    {"Session_ID": 2, "Quiz_ID": 2, "Host_ID": 2, "Game_PIN": "654321", "Session_name": "Tech Geeks Unite", "Start_time": "2023-10-28 19:00:00", "Is_active": false},
+    {"Session_ID": 3, "Quiz_ID": 3, "Host_ID": 7, "Game_PIN": "999999", "Session_name": "Science Fair Prep", "Start_time": "2023-10-29 10:00:00", "Is_active": true}
+  ],
+  "session_players": [
+    {"Session_Player_ID": 1, "Session_ID": 1, "User_ID": 3, "Score": 100, "Joined_at": "2023-10-27 17:55:00"},
+    {"Session_Player_ID": 2, "Session_ID": 1, "User_ID": 4, "Score": 0, "Joined_at": "2023-10-27 17:56:00"},
+    {"Session_Player_ID": 3, "Session_ID": 1, "User_ID": 5, "Score": 300, "Joined_at": "2023-10-27 17:58:00"},
+    {"Session_Player_ID": 4, "Session_ID": 3, "User_ID": 8, "Score": 100, "Joined_at": "2023-10-29 09:55:00"}
+  ],
+  "answers": [
+    {"Answer_ID": 1, "Session_ID": 1, "User_ID": 3, "Question_ID": 1, "Option_ID": 3, "Answer_text": null, "Created_at": "2023-10-27 18:01:00"},
+    {"Answer_ID": 2, "Session_ID": 1, "User_ID": 4, "Question_ID": 1, "Option_ID": 1, "Answer_text": null, "Created_at": "2023-10-27 18:01:15"},
+    {"Answer_ID": 3, "Session_ID": 1, "User_ID": 5, "Question_ID": 3, "Option_ID": null, "Answer_text": "Mars", "Created_at": "2023-10-27 18:05:00"},
+    {"Answer_ID": 4, "Session_ID": 3, "User_ID": 8, "Question_ID": 6, "Option_ID": 16, "Answer_text": null, "Created_at": "2023-10-29 10:02:00"}
+  ]
+}
