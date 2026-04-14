@@ -1,1 +1,0 @@
-print("Majd ez ír az adatbázisba")
