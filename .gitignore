@@ -5,6 +5,8 @@
 # Volumes and databases
 db_data/
 *.sqlite3
+WebRPC/votes_data/*.jsonl
+WebRPC/adatok.txt
 
 # IDEs and Editors
 .vscode/
