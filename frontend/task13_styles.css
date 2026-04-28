@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap');
+
+/* --- 1. CSS VARIABLES (THEME LOGIC) --- */
+:root {
+    /* LIGHT MODE (Frutiger Aero Sky) */
+    --bg-main: linear-gradient(135deg, #87cefa 0%, #e0f7fa 100%);
+    --text-main: #0f172a;
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.9);
+    --glass-shadow: 0 8px 32px rgba(0, 100, 200, 0.15);
+    --gloss-highlight: inset 0 2px 4px rgba(255,255,255,0.8);
+    --nav-bg: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] {
+    /* DARK MODE (Aero Midnight) */
+    --bg-main: linear-gradient(135deg, #020617 0%, #1e1b4b 100%);
+    --text-main: #f8fafc;
+    --glass-bg: rgba(15, 23, 42, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    --gloss-highlight: inset 0 2px 4px rgba(255,255,255,0.15);
+    --nav-bg: rgba(15, 23, 42, 0.85);
+}
+
+/* GLOBAL STYLES */
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-main); 
+    color: var(--text-main);
+    display: flex; 
+    justify-content: center; 
+    margin: 0; 
+    height: 100vh;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+.screen { display: none; width: 100%; max-width: 500px; position: relative; padding-top: 20px;}
+.screen.active { display: block; animation: fadeIn 0.3s ease; }
+.app-view { display: none; padding: 0 20px 80px; }
+.app-view.active { display: block; animation: fadeIn 0.2s ease; }
+
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+
+/* --- 2. THE GLASSMORPHISM PANELS --- */
+.glass-panel {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: var(--glass-shadow);
+    margin-bottom: 20px;
+}
+.glass-panel h2 { margin: 0; font-size: 18px; line-height: 1.4; text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+
+/* Theme Toggle Button */
+/* #theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    font-weight: 600;
+    transition: all 0.2s;
+    z-index: 100;
+}
+#theme-toggle:hover { filter: brightness(1.1); } */
+
+/* --- 3. GLOSSY FRUTIGER AERO BUTTONS --- */
+.list-grid { display: flex; flex-direction: column; gap: 15px; }
+
+.vote-option {
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    box-shadow: var(--gloss-highlight), 0 4px 6px rgba(0,0,0,0.2);
+    transition: transform 0.1s, filter 0.2s;
+}
+
+.vote-option:hover { filter: brightness(1.15) contrast(1.1); }
+.vote-option:active { transform: scale(0.96); }
+
+/* The Gradients */
+.aero-red { background: linear-gradient(180deg, #ff6b6b 0%, #c92a2a 100%); }
+.aero-blue { background: linear-gradient(180deg, #4dabf7 0%, #1864ab 100%); }
+.aero-yellow { background: linear-gradient(180deg, #fcc419 0%, #e67700 100%); }
+.aero-green { background: linear-gradient(180deg, #69db7c 0%, #2b8a3e 100%); }
+
+/* --- 4. STATS VIEW --- */
+.chart-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 250px;
+    padding-top: 40px;
+}
+
+.bar-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+    width: 20%;
+}
+
+.bar {
+    width: 100%;
+    height: var(--percent); 
+    border-radius: 8px 8px 0 0;
+    transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--gloss-highlight), 2px 0 5px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-bottom: none;
+}
+
+.bar-group span {
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    
+    height: 50px;
+    width: 140%;
+    
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    
+    line-height: 1.2;
+    word-wrap: break-word; 
+}
+
+/* --- 5. BOTTOM NAVIGATION --- */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 500px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    border-top: 1px solid var(--glass-border);
+    box-sizing: border-box;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    opacity: 0.6;
+    transition: all 0.2s;
+}
+
+.nav-btn .icon { font-size: 22px; transition: transform 0.2s; }
+.nav-btn:hover .icon { transform: translateY(-3px); }
+
+/* Active Nav State */
+.nav-btn.active { opacity: 1; }
+.nav-btn.active .icon { 
+    /* A little glossy trick for the active icon */
+    filter: drop-shadow(0 2px 4px rgba(0, 150, 255, 0.5)); 
+}

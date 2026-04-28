@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting</title>
+    <link rel="stylesheet" href="task13_styles.css">
+</head>
+<body>
+
+    <div id="app-container" class="screen active">
+        
+        <div id="voting-view" class="app-view active">
+            <div class="glass-panel">
+                <h2>How are you feeling?</h2>
+            </div>
+            <div class="list-grid">
+                <button class="vote-option aero-red">Weeeei</button>
+                <button class="vote-option aero-blue">Im gonna kms</button>
+                <button class="vote-option aero-yellow">Mid</button>
+                <button class="vote-option aero-green">*golden freddy scream*</button>
+            </div>
+        </div>
+
+        <div id="stats-view" class="app-view">
+            <div class="glass-panel">
+                <h2>Live Results</h2>
+            </div>
+            
+            <div class="chart-container glass-panel">
+                <div class="bar-group">
+                    <div class="bar aero-red" style="--percent: 45%;"></div>
+                    <span>Weeeei</span>
+                </div>
+                <div class="bar-group">
+                    <div class="bar aero-blue" style="--percent: 20%;"></div>
+                    <span>Im gonna kms</span>
+                </div>
+                <div class="bar-group">
+                    <div class="bar aero-yellow" style="--percent: 25%;"></div>
+                    <span>Mid</span>
+                </div>
+                <div class="bar-group">
+                    <div class="bar aero-green" style="--percent: 10%;"></div>
+                    <span>*golden freddy scream*</span>
+                </div>
+            </div>
+        </div>
+
+        <nav class="bottom-nav glass-nav">
+            <button class="nav-btn active" onclick="switchTab('voting-view', this)">
+                <span class="icon">🗳️</span> Vote
+            </button>
+            <button class="nav-btn" onclick="switchTab('stats-view', this)">
+                <span class="icon">📊</span> Stats
+            </button>
+            <button id="theme-toggle" class="nav-btn" onclick="toggleTheme()">
+                <span class="icon" id="theme-icon">🌙</span> <span id="theme-text">Dark</span>
+            </button>
+        </nav>
+
+    </div>
+
+    <script>
+        function switchTab(targetId, btnElement) {
+            document.querySelectorAll('.app-view').forEach(view => view.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(targetId).classList.add('active');
+            btnElement.classList.add('active');
+        }
+
+        // The Dark Mode Logic
+        // The Updated Dark Mode Logic
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            const text = document.getElementById('theme-text');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                icon.innerText = '🌙';
+                text.innerText = 'Dark';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                icon.innerText = '☀️';
+                text.innerText = 'Light';
+            }
+        }
+    </script>
+</body>
+</html>
