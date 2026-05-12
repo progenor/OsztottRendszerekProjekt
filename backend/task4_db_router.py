@@ -1,20 +1,20 @@
 # TASK 4: Server side multiple database handling based on key
-import pymysql
+import mysql.connector
 import json
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 DB_CONFIG = {
     'host': '127.0.0.1',
-    'user': 'root',
-    'password': '', # Add your password here if needed
-    'charset': 'utf8mb4',
-    'cursorclass': pymysql.cursors.DictCursor
+    'user': os.getenv('DB_USER'),
+    'password': os.getenv('DB_PASSWORD'),
 }
 
 def get_connection(db_type):
     """Csatlakozik a megfelelő adatbázishoz (a vagy b)."""
     db_name = f"kahoot_clone_{db_type}"
-    return pymysql.connect(database=db_name, **DB_CONFIG)
+    return mysql.connector.connect(database=db_name, **DB_CONFIG)
 
 def read_from_txt():
     current_dir = os.path.dirname(os.path.abspath(__file__))
