@@ -14,8 +14,6 @@ async function submitVote(option_id) {
         body: JSON.stringify(payload)
     });
 
- /*    ;
-    document.getElementById("button-container").innerHTML = "<h2>Vote received! Waiting for others...</h2>"; */
     const container = document.getElementById("button-container");
     container.innerHTML = "<div class='glass-panel'><h2>Vote received!</h2><p>Wait for the timer to see results...</p></div>";
 }
