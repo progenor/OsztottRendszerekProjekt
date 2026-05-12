@@ -28,8 +28,9 @@ jobs:
 
       - name: Lint Python
         run: |
-          pip install flake8
+          pip install flake8 black
           flake8 backend/ --ignore=E501,F401,E402
+          black --check backend/
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
