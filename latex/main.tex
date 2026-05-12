@@ -5,7 +5,18 @@
 \geometry{a4paper, margin=1in}
 
 \title{Osztott Rendszerek Projekt \\ Kahoot Clone}
-\author{Progenor}
+\author{Balázs-Gudor Rózsa \\
+Budai-Barabási Csanád \\
+Craciun Edvin \\
+Dávid Lóránd \\
+Fehér Balázs Botond \\
+Ivácson Attila Lénárd \\
+Kántor Csongor Szilárd \\
+Konya Zsófia \\
+Mihácsa Gergely-Olivér \\
+Szabó István \\
+Szántó Róbert \\
+Szántó Sándor-Norbert}
 \date{\today}
 
 \begin{document}
@@ -70,7 +81,17 @@ This section provides a detailed description of each file in the project, explai
 
 \section{Diagrams}
 
+\subsection{Kahoot Clone}
+This diagram provides a high-level overview of the entire Kahoot Clone application.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{diagrams/kahoot_clone.png}
+    \caption{Kahoot Clone}
+\end{figure}
+\clearpage
+
 \subsection{Sequence Diagram: Vote Submission}
+The following sequence diagram illustrates the process of submitting a vote, from the user's action to the database write operation. The user sends a POST request to the web server, which then delegates the vote processing to the VoteReceiver. The VoteReceiver, in turn, uses the DBWriter to persist the vote in the database.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{diagrams/vote_processing.png}
@@ -79,6 +100,7 @@ This section provides a detailed description of each file in the project, explai
 \clearpage
 
 \subsection{UML Diagram}
+This UML diagram describes the static structure of the system, showing the classes and their relationships.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{diagrams/UML_diagram.png}
@@ -87,6 +109,7 @@ This section provides a detailed description of each file in the project, explai
 \clearpage
 
 \subsection{Game PIN Routing}
+The system uses a simple but effective load balancing strategy based on the game PIN. Even PINs are routed to one database instance, and odd PINs to another. This distributes the load evenly across the two databases.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{diagrams/game_pin_routing.png}
@@ -95,20 +118,11 @@ This section provides a detailed description of each file in the project, explai
 \clearpage
 
 \subsection{Quiz Game}
+This diagram shows the overall flow of the quiz game from the user's perspective.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{diagrams/quiz_game.png}
     \caption{Quiz Game}
 \end{figure}
-\clearpage
-
-\subsection{Kahoot Clone}
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{diagrams/kahoot_clone.png}
-    \caption{Kahoot Clone}
-\end{figure}
-\clearpage
-
 
 \end{document}
