@@ -11,3 +11,12 @@ db_data/
 .idea/
 *.swp
 *.swo
+
+# LaTeX
+/latex/*.aux
+/latex/*.log
+/latex/*.out
+/latex/*.toc
+/latex/*.bbl
+/latex/*.blg
+/latex/main.pdf
