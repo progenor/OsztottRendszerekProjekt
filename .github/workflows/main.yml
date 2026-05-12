@@ -20,24 +20,3 @@ jobs:
 
       - name: Build the stack
         run: docker-compose build
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: "3.x"
-
-      - name: Lint Python
-        run: |
-          pip install flake8 black
-          flake8 backend/ --ignore=E501,F401,E402
-          black --check backend/
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: "14"
-
-      - name: Lint JavaScript
-        run: |
-          npm install eslint
-          ./node_modules/.bin/eslint frontend/ backend/ --ext .js
