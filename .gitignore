@@ -20,3 +20,6 @@ db_data/
 /latex/*.bbl
 /latex/*.blg
 /latex/main.pdf
+/latex/*.gz
+/latex/*.fls
+/latex/*.fdb_latexmk
