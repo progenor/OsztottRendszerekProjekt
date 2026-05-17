@@ -4,24 +4,27 @@
     <meta charset="UTF-8">
     <title>Kahoot Clone</title>
     <link rel="stylesheet" href="task13_styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div id="login-screen" class="screen active">
-        <h1>Kahoot Clone</h1>
+        <h1 class="glass-panel">Kahoot Clone</h1>
         <input type="number" id="pin-input" placeholder="Game PIN">
         <input type="text" id="name-input" placeholder="Your Name">
-        <button class="enter-btn" onclick="joinGame()">Enter</button>
+        <button class="aero-neutral" onclick="joinGame()">Enter</button>
         <p id="error-msg" style="color: red; display: none;">Game not found!</p>
     </div>
 
     <div id="game-screen" class="screen">
-        <h2 id="question-text">Loading...</h2>
-        <div class="grid" id="button-container"></div>
+        <h2 id="question-text" class="glass-panel">Loading...</h2>
+        <h2 id="timer-display">Time left: <span id="time-left">15</span>s</h2>
+        <div class="list-grid" id="button-container"></div>
     </div>
 
     <div id="result-screen" class="screen">
         <h1>Vote Submitted!</h1>
-        <p>Look at the host screen.</p>
+        <p>Look at the host screen or wait for the timer to run out.</p>
+        <canvas id="results-chart" style="display: none; max-width: 400px;"></canvas>
     </div>
 
     <script src="../backend/task14_login.js"></script>

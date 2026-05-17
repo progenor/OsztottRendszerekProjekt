@@ -14,6 +14,6 @@ async function submitVote(option_id) {
         body: JSON.stringify(payload)
     });
 
-    document.getElementById("game-screen").classList.remove("active");
-    document.getElementById("result-screen").classList.add("active");
+    const container = document.getElementById("button-container");
+    container.innerHTML = "<div class='glass-panel'><h2>Vote received!</h2><p>Wait for the timer to see results...</p></div>";
 }
